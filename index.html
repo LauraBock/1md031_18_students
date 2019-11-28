@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Burgerama</title>
+        <meta charset="utf-8"/>
+        <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+        <script src="js/js_script.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js" defer></script>
+        <script src="js/vue_script.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <section id="header">
+                <img src= "http://ipadflava.com/wp-content/uploads/flames.jpg">
+                <h1 class="header"> Welcome to Burgerama!</h1>
+            </section>
+            <section id="burger">
+                <h2 class="header"> About the Burgers </h2>
+                <p class="header"> One better than the other - Your choice!</p>
+                <div class = "grid">
+                    <h3>
+                        {{heading}}
+                    </h3>
+                </div>
+            </section>
+            <section id="costumer">
+                <h2> About you </h2>
+                <p> Please insert your data. </p>
+                <p>
+                    <label for"gender">Gender</label><br>
+                    <input name="gender" type="radio" value="female">Female<br>
+                    <input name="gender" type="radio" value="male">Male<br>
+                    <input name="gender" type="radio" value="non-binary">Non-Binary<br>
+                    <input name="gender" type="radio" value="undisclosed" checked="checked">Undisclosed<br>
+                <p> 
+                    <label for="fullname">Name</label><br>
+                    <input name="name" id="fullname" required="required" type="text" placeholder="First and Last name">
+                </p>
+                <p>
+                    <label for="email">E-Mail</label><br>
+                    <input name="mail" id="email" required="required" type="email" placeholder="E-mail adress">
+                </p>
+                <p>
+                    <label for="street">Street</label><br>
+                    <input name="street" id="street" required="required" type="text" placeholder="Street name">
+                </p>
+                <p>
+                    <label for="house">House</label><br>
+                    <input name="house" id="house" required="required" type="number" min="1" placeholder="House number">
+                </p>
+                <p>
+                    <label for="city">City</label><br>
+                    <select name="city" id="city">
+                        <option>Uppsala</option>
+                        <option>Stockholm</option>
+                        <option>Knivsta</option>
+                        <option>Märsta</option>
+                        
+                    </select>
+                </p>
+            </section>
+                <button type="submit"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
+        </main>
+        <hr>
+        <footer> &copy; 2019 Burgerama AB</footer>
+    </body>
+</html>
