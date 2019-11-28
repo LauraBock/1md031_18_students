@@ -23,7 +23,6 @@ let burgers = [classic, chicken, veggie, goat, salmon];
 var vm = new Vue({
     el: '.grid',
     data: {
-        burgers : burgers,
-        heading : burgers.name
+        burgers : burgers
     }
 })

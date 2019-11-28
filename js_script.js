@@ -20,7 +20,7 @@ var salmon = new MenuItem("Salmon Burger", "Reminds you of your last summer holi
 let burgers = [classic, chicken, veggie, goat, salmon];
 //console.log(menu[2].info());
 
-/*var myElement = document.getElementsByClassName("grid");
+var myElement = document.getElementsByClassName("grid");
 for(let burger of burgers) {
     var div = document.createElement("div");
     
@@ -39,27 +39,34 @@ for(let burger of burgers) {
     var desLi= document.createElement("li");
     var desText = document.createTextNode(burger.description);
     desLi.appendChild(desText);
+    ul.appendChild(desLi);
     
     var calLi = document.createElement("li");
     var calText = document.createTextNode(burger.kcal + ' kCal');
     calLi.appendChild(calText);
-    
-    var  allLi= document.createElement("li");
-    allLi.setAttribute('class', 'allergies')
-    if(burger.gluten == true && burger.lactose == true) {
-        var allText = document.createTextNode("Contains gluten and lactose");
-        allLi.appendChild(allText);
-    } else if(burger.gluten == true) {
-        var allText = document.createTextNode("Contains gluten");
-        allLi.appendChild(allText);
-    } else if (burger.lactose == true) {
-        var allText = document.createTextNode("Contains lactose");
-        allLi.appendChild(allText);
-    } 
-    
-    ul.appendChild(desLi);
     ul.appendChild(calLi);
-    ul.appendChild(allLi);
+    
+    var allText1 = document.createTextNode("Contains ");
+    if(burger.gluten) {
+        var  allLi= document.createElement("li");
+        allLi.appendChild(allText1);
+        var span = document.createElement("span");
+        span.setAttribute('class', 'allergies');
+        var allText2 = document.createTextNode("gluten");
+        span.appendChild(allText2);
+        allLi.appendChild(span);
+        ul.appendChild(allLi);
+    }
+    if (burger.lactose) {
+        var  allLi= document.createElement("li");
+        allLi.appendChild(allText1);
+        var span = document.createElement("span");
+        span.setAttribute('class', 'allergies');
+        var allText2 = document.createTextNode("lactose");
+        span.appendChild(allText2);
+        allLi.appendChild(span);
+        ul.appendChild(allLi);
+    }
     
     div.appendChild(header);
     div.appendChild(image);
@@ -67,4 +74,4 @@ for(let burger of burgers) {
     
     myElement[0].appendChild(div);
 
-} */
+} 
