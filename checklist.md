@@ -15,18 +15,18 @@ Before you submit the final version of your labs, make sure that your project fu
 
 Create an index.html file which contains:
 - [X] A headline
-- [ X] A section to select burgers that contains at least three items. Each item has:
-	- [X ] A name
-	- [ X] An image
-	- [ X] Information about allergies 
-- [ ] A section to collect customer information:
-	- [X ] First- and Last Name (in one field)
-	- [ X] E-Mail Address
-	- [ X] Street
-	- [ ] House Number (only allowing numbers in this field)
+- [X] A section to select burgers that contains at least three items. Each item has:
+	- [X] A name
+	- [X] An image
+	- [X] Information about allergies 
+- [X] A section to collect customer information:
+	- [X] First- and Last Name (in one field)
+	- [X] E-Mail Address
+	- [X] Street
+	- [X] House Number (only allowing numbers in this field)
 	- [X] Gender (male, female, do not wish to provide as radio buttons)
-- [X ] A button to place the order
-- [ X] Ensure the website loads when opening http://localhost:3000/
+- [X] A button to place the order
+- [X] Ensure the website loads when opening http://localhost:3000/
 
 ## 03 CSS
 
@@ -43,14 +43,14 @@ Create a style.css file which contains:
 ## 04 JavaScript
 
 Create a menu.js file which contains:
-- [ ] At least five different burgers with respective attributes
+- [X] At least five different burgers with respective attributes
 
 Create a js_script.js file which contains:
 - [X] A MenuItem constructor 
 - [X] A function that defines at least five different burgers using the MenuItem constructor and adds them to an array
 - [X] A function that loops through the array and inserts the information to the burger selection section of the index.html file
-- [ ] A function that loads the information from the menu.js json object and inserts the information to the burger selection section of the index.html file
-- [ ] Only displays allergy information if relevant (either only if it contains gluten or lactose, or only if it's gluten or lactose free)
+- [X] A function that loads the information from the menu.js json object and inserts the information to the burger selection section of the index.html file
+- [X] Only displays allergy information if relevant (either only if it contains gluten or lactose, or only if it's gluten or lactose free)
 - [ ] Add a checkbox to each menu item
 - [ ] A functionality for the order button that writes the information from the text boxes, the gender and all items on the order (that have the checkbox checked) to the bottom of the html file when the button is clicked
 

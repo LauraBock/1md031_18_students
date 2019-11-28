@@ -6,6 +6,7 @@
         <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+        <script type="text/javascript" src="js/menu.js"></script>
         <script src="js/js_script.js" defer></script>
         <script src="https://vuejs.org/js/vue.js" defer></script>
         <script src="js/vue_script.js" defer></script>
@@ -20,7 +21,7 @@
                 <h2 class="header"> About the Burgers </h2>
                 <p class="header"> One better than the other - Your choice!</p>
                 <div class = "grid">
-                    <!--<div v-for="burger in burgers">
+                 <!--  <div v-for="burger in food">
                     <h3>{{burger.name}}</h3>
                     <img v-bind:src="burger.image" title=burger.name width = "200">   
                     <ul>
@@ -28,18 +29,32 @@
                         <li>{{burger.kcal}}</li>
                         <li v-if="burger.gluten">Contains <span class="allergies">gluten</span></li>
                         <li v-if="burger.lactose">Contains <span class="allergies">lactose</span></li>
-                    </ul>-->
+                    </ul> -->
                 </div>
             </section>
             <section id="costumer">
                 <h2> About you </h2>
                 <p> Please insert your data. </p>
-                <p>
-                    <label for"gender">Gender</label><br>
-                    <input name="gender" type="radio" value="female">Female<br>
-                    <input name="gender" type="radio" value="male">Male<br>
-                    <input name="gender" type="radio" value="non-binary">Non-Binary<br>
-                    <input name="gender" type="radio" value="undisclosed" checked="checked">Undisclosed<br>
+                <div id="gender">
+                    <label for "gender">Gender</label><br>
+                    <div>
+                        <input name="gender" type="radio" value="female" id="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div>
+                        <input name="gender" type="radio" value="male" id="male">
+                        <label for="male">Male</label>
+                    </div>
+                    <div>
+                        <input name="gender" type="radio" value="non-binary" id="non">
+                        <label for="non">Non-Binary</label>
+                    </div>
+                    <div>
+                        <input name="gender" type="radio" value="undisclosed" id="undis" checked>
+                        <label for="undis">Undisclosed</label>
+                    </div>
+                    <div id="result"></div>
+                </div>
                 <p> 
                     <label for="fullname">Name</label><br>
                     <input name="name" id="fullname" required="required" type="text" placeholder="First and Last name">
@@ -56,18 +71,24 @@
                     <label for="house">House</label><br>
                     <input name="house" id="house" required="required" type="number" min="1" placeholder="House number">
                 </p>
-                <p>
+               <!-- <p>
                     <label for="city">City</label><br>
                     <select name="city" id="city">
                         <option>Uppsala</option>
                         <option>Stockholm</option>
                         <option>Knivsta</option>
                         <option>Märsta</option>
-                        
                     </select>
-                </p>
+                </p> -->
             </section>
-                <button type="submit"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
+                <div id="orderButton">
+                    <button type="submit" v-on:click="markDone(key)"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
+                </div>
+            <section id="confirmation">
+                <h2> Order confirmation</h2>
+                <h3> Costumer details</h3>
+                <p>Name: {{costumer.fullname}}</p>
+            </section>
         </main>
         <hr>
         <footer> &copy; 2019 Burgerama AB</footer>

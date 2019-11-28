@@ -1,4 +1,4 @@
-function MenuItem(name, des, img, kcal, glu, lac) {
+/*function MenuItem(name, des, img, kcal, glu, lac) {
     this.name = name;
     this.description = des;
     this.image = img;
@@ -19,9 +19,9 @@ var salmon = new MenuItem("Salmon Burger", "Reminds you of your last summer holi
 
 let burgers = [classic, chicken, veggie, goat, salmon];
 //console.log(menu[2].info());
-
+*/
 var myElement = document.getElementsByClassName("grid");
-for(let burger of burgers) {
+for(let burger of food) {
     var div = document.createElement("div");
     
     var header = document.createElement("h3");
@@ -46,9 +46,9 @@ for(let burger of burgers) {
     calLi.appendChild(calText);
     ul.appendChild(calLi);
     
-    var allText1 = document.createTextNode("Contains ");
     if(burger.gluten) {
         var  allLi= document.createElement("li");
+        var allText1 = document.createTextNode("Contains ");
         allLi.appendChild(allText1);
         var span = document.createElement("span");
         span.setAttribute('class', 'allergies');
@@ -59,6 +59,7 @@ for(let burger of burgers) {
     }
     if (burger.lactose) {
         var  allLi= document.createElement("li");
+        var allText1 = document.createTextNode("Contains ");
         allLi.appendChild(allText1);
         var span = document.createElement("span");
         span.setAttribute('class', 'allergies');
@@ -74,4 +75,31 @@ for(let burger of burgers) {
     
     myElement[0].appendChild(div);
 
-} 
+}
+
+var orderButton = document.getElementById('orderButton');
+orderButton.onclick = function() {
+    console.log("Button clicked!");
+    var gender = "";
+    if(document.getElementById("female").checked) {
+        gender = document.getElementById("female").value;
+    } else if(document.getElementById("male").checked) {
+        gender = document.getElementById("male").value;
+    } else if(document.getElementById("non").checked) {
+        gender = document.getElementById("non").value;
+    } else if(document.getElementById("undis").checked) {
+        gender = document.getElementById("undis").value;
+    }
+    var fullname = document.getElementById("fullname").value;
+    var email = document.getElementById("email").value;
+    var street = document.getElementById("street").value;
+    var house = document.getElementById("house").value;
+    
+    let costumer = [gender, fullname, email, street, house];
+    
+    console.log(costumer[1]);
+    console.log(costumer[2]);
+    console.log(costumer[3]);
+    console.log(costumer[4]);
+    console.log(costumer[5]);
+};
