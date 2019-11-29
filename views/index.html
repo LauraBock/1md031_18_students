@@ -1,9 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title> Burgerama</title>
+        <meta charset="utf-8"/>
+        <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+        <script type="text/javascript" src="js/menu.js"></script>
+        <script src="js/js_script.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js" defer></script>
+        <script src="js/vue_script.js" defer></script>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+            <section id="header">
+                <img src= "http://ipadflava.com/wp-content/uploads/flames.jpg">
+                <h1 class="header"> Welcome to Burgerama!</h1>
+            </section>
+            <section id="burger">
+                <h2 class="header"> About the Burgers </h2>
+                <p class="header"> One better than the other - Your choice!</p>
+                <div class = "grid">
+                <div v-for="burger in food">
+                    <h3>{{burger.name}}</h3>
+                    <img v-bind:src="burger.image" title=burger.name width = "200">   
+                    <ul>
+                        <li>{{burger.description}}</li>
+                        <li>{{burger.kcal}}</li>
+                        <li v-if="burger.gluten">Contains <span class="allergies">gluten</span></li>
+                        <li v-if="burger.lactose">Contains <span class="allergies">lactose</span></li>
+                    </ul>
+                    <input v-bind:id=burger.id type="checkbox">
+                </div>
+                </div>
+            </section>
+            <section id="costumer">
+                <h2> About you </h2>
+                <p> Please insert your data. </p>
+                <div id="gender">
+                    <label for "gender">Gender</label><br>
+                    <div>
+                        <input name="gender" type="radio" value="female" id="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div>
+                        <input name="gender" type="radio" value="male" id="male">
+                        <label for="male">Male</label>
+                    </div>
+                    <div>
+                        <input name="gender" type="radio" value="non-binary" id="non">
+                        <label for="non">Non-Binary</label>
+                    </div>
+                    <div>
+                        <input name="gender" type="radio" value="undisclosed" id="undis" checked>
+                        <label for="undis">Undisclosed</label>
+                    </div>
+                    <div id="result"></div>
+                </div>
+                <p> 
+                    <label for="fullname">Name</label><br>
+                    <input name="name" id="fullname" required="required" type="text" placeholder="First and Last name">
+                </p>
+                <p>
+                    <label for="email">E-Mail</label><br>
+                    <input name="mail" id="email" required="required" type="email" placeholder="E-mail adress">
+                </p>
+                <!-- <p>
+                    <label for="street">Street</label><br>
+                    <input name="street" id="street" required="required" type="text" placeholder="Street name">
+                </p>
+                <p>
+                    <label for="house">House</label><br>
+                    <input name="house" id="house" required="required" type="number" min="1" placeholder="House number">
+                </p> -->
+               <!-- <p>
+                    <label for="city">City</label><br>
+                    <select name="city" id="city">
+                        <option>Uppsala</option>
+                        <option>Stockholm</option>
+                        <option>Knivsta</option>
+                        <option>Märsta</option>
+                    </select>
+                </p> -->
+            </section>
+            <!DOCTYPE html>
+                <html>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                  <title>DELI-VERY MAP</title>
+                  <link rel="stylesheet" href="css/deli-very.css">
+                  <script src="/vue/vue.js" defer></script>
+                  <script src="/socket.io/socket.io.js" defer></script>
+                  <!-- <script src="js/deli-very.js" defer></script> -->
+                </head>
+                <body>
+                  <h1> Click in the map! </h1>
+                  <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+                  <div class="view-box">
+                    <div id="dots" v-on:click="displayOrder">
+                        <div 
+                          v-for="(order, key) in orders"
+                          v-bind:style="{ left: x + 'px', top: y + 'px'}">
+                          T
+                        </div>
+                    </div>
+                  </div>
+                </body>
+                </html>
+                <div id="orderButton">
+                    <button type="submit" v-on:click="markDone(key)" v-on:click="addOrder"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
+                </div>
+            <h2> Order confirmation</h2>
+            <h3> Costumer details</h3>
+            <div id="confirmation">
+            </div>
+        </main>
+        <hr>
+        <footer> &copy; 2019 Burgerama AB</footer>
     </body>
 </html>
