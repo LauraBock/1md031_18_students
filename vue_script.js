@@ -9,10 +9,14 @@ new Vue({
     el:'#orderButton',
     methods: {
         markDone: function() {
-            el: '#confirmation',
-            data: {
-                costumer: costumer
-            }
+            new Vue ({
+                el: '#confirmation',
+                data: {
+                    costumer: saveData()
+                }
+            })
         }
     }
-});
+})
+
+

@@ -21,7 +21,7 @@
                 <h2 class="header"> About the Burgers </h2>
                 <p class="header"> One better than the other - Your choice!</p>
                 <div class = "grid">
-                 <!--  <div v-for="burger in food">
+                <div v-for="burger in food">
                     <h3>{{burger.name}}</h3>
                     <img v-bind:src="burger.image" title=burger.name width = "200">   
                     <ul>
@@ -29,7 +29,7 @@
                         <li>{{burger.kcal}}</li>
                         <li v-if="burger.gluten">Contains <span class="allergies">gluten</span></li>
                         <li v-if="burger.lactose">Contains <span class="allergies">lactose</span></li>
-                    </ul> -->
+                    </ul>
                 </div>
             </section>
             <section id="costumer">
@@ -84,11 +84,14 @@
                 <div id="orderButton">
                     <button type="submit" v-on:click="markDone(key)"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
                 </div>
-            <section id="confirmation">
-                <h2> Order confirmation</h2>
-                <h3> Costumer details</h3>
-                <p>Name: {{costumer.fullname}}</p>
-            </section>
+            <h2> Order confirmation</h2>
+            <h3> Costumer details</h3>
+            <div id="confirmation">
+                <ol>
+                    <li v-for="items in costumer">
+                    </li>
+                </ol>
+            </div>
         </main>
         <hr>
         <footer> &copy; 2019 Burgerama AB</footer>

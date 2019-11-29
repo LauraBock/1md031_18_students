@@ -19,7 +19,7 @@ var salmon = new MenuItem("Salmon Burger", "Reminds you of your last summer holi
 
 let burgers = [classic, chicken, veggie, goat, salmon];
 //console.log(menu[2].info());
-*/
+
 var myElement = document.getElementsByClassName("grid");
 for(let burger of food) {
     var div = document.createElement("div");
@@ -75,12 +75,11 @@ for(let burger of food) {
     
     myElement[0].appendChild(div);
 
-}
+} */
 
-var orderButton = document.getElementById('orderButton');
-orderButton.onclick = function() {
-    console.log("Button clicked!");
-    var gender = "";
+var costumer = [];
+let saveData = function() {
+   // console.log("Button clicked!");
     if(document.getElementById("female").checked) {
         gender = document.getElementById("female").value;
     } else if(document.getElementById("male").checked) {
@@ -95,11 +94,16 @@ orderButton.onclick = function() {
     var street = document.getElementById("street").value;
     var house = document.getElementById("house").value;
     
-    let costumer = [gender, fullname, email, street, house];
+    costumer = [gender, fullname, email, street, house];
     
+   /* console.log(costumer[0]);
     console.log(costumer[1]);
     console.log(costumer[2]);
     console.log(costumer[3]);
-    console.log(costumer[4]);
-    console.log(costumer[5]);
+    console.log(costumer[4]); */
+    //return(costumer);
 };
+
+var orderButton = document.getElementById('orderButton');
+orderButton.addEventListener("click", saveData);
+console.log(costumer[1]);
