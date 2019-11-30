@@ -12,7 +12,7 @@
         <script src="js/vue_script.js" defer></script>
     </head>
     <body>
-        <main>
+        <main id="messaging">
             <section id="header">
                 <img src= "http://ipadflava.com/wp-content/uploads/flames.jpg">
                 <h1 class="header"> Welcome to Burgerama!</h1>
@@ -38,21 +38,21 @@
                 <h2> About you </h2>
                 <p> Please insert your data. </p>
                 <div id="gender">
-                    <label for "gender">Gender</label><br>
+                    <label for="gender">Gender</label><br>
                     <div>
-                        <input name="gender" type="radio" value="female" id="female">
+                        <input name="gender" type="radio" value="Female" id="female">
                         <label for="female">Female</label>
                     </div>
                     <div>
-                        <input name="gender" type="radio" value="male" id="male">
+                        <input name="gender" type="radio" value="Male" id="male">
                         <label for="male">Male</label>
                     </div>
                     <div>
-                        <input name="gender" type="radio" value="non-binary" id="non">
+                        <input name="gender" type="radio" value="Non-binary" id="non">
                         <label for="non">Non-Binary</label>
                     </div>
                     <div>
-                        <input name="gender" type="radio" value="undisclosed" id="undis" checked>
+                        <input name="gender" type="radio" value="Undisclosed" id="undis" checked>
                         <label for="undis">Undisclosed</label>
                     </div>
                     <div id="result"></div>
@@ -73,15 +73,15 @@
                     <label for="house">House</label><br>
                     <input name="house" id="house" required="required" type="number" min="1" placeholder="House number">
                 </p> -->
-               <!-- <p>
-                    <label for="city">City</label><br>
-                    <select name="city" id="city">
-                        <option>Uppsala</option>
-                        <option>Stockholm</option>
-                        <option>Knivsta</option>
-                        <option>Märsta</option>
+               <p>
+                    <label for="payment">Payment options</label><br>
+                    <select name="payment" id="payment">
+                        <option value ="Paypal">PayPal</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Swish">Swish</option>
                     </select>
-                </p> -->
+                </p>
             </section>
             <!DOCTYPE html>
                 <html>
@@ -92,7 +92,7 @@
                   <link rel="stylesheet" href="css/deli-very.css">
                   <script src="/vue/vue.js" defer></script>
                   <script src="/socket.io/socket.io.js" defer></script>
-                  <!-- <script src="js/deli-very.js" defer></script> -->
+                  <script src="js/deli-very.js" defer></script>
                 </head>
                 <body>
                   <h1> Click in the map! </h1>
@@ -100,7 +100,6 @@
                   <div class="view-box">
                     <div id="dots" v-on:click="displayOrder">
                         <div 
-                          v-for="(order, key) in orders"
                           v-bind:style="{ left: x + 'px', top: y + 'px'}">
                           T
                         </div>
@@ -109,11 +108,14 @@
                 </body>
                 </html>
                 <div id="orderButton">
-                    <button type="submit" v-on:click="markDone(key)" v-on:click="addOrder"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
+                    <button type="submit" v-on:click="addOrder"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
                 </div>
             <h2> Order confirmation</h2>
             <h3> Costumer details</h3>
-            <div id="confirmation">
+            <div id="costumerInfo">
+            </div>
+            <h3> Order summary</h3>
+            <div id="orderItems">
             </div>
         </main>
         <hr>

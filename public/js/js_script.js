@@ -83,11 +83,7 @@ for(let burger of food) {
 
 }
 */
-
-let saveAndDisplay = function() {
-   // console.log("Button clicked!");
-    
-    //save information in an array
+let createCostumer = function() {
     if(document.getElementById("female").checked) {
         gender = document.getElementById("female").value;
     } else if(document.getElementById("male").checked) {
@@ -99,57 +95,80 @@ let saveAndDisplay = function() {
     }
     var fullname = document.getElementById("fullname").value;
     var email = document.getElementById("email").value;
+    var payment = document.getElementById("payment").value;
     //var street = document.getElementById("street").value;
     //var house = document.getElementById("house").value;
-    
-    let costumer = [gender, fullname, email/*, street, house*/];
+
+    let costumer = [gender.toString(), fullname.toString(), email.toString(), payment.toString()/*, street, house*/];
    /* console.log(costumer[0]);
     console.log(costumer[1]);
     console.log(costumer[2]);
     console.log(costumer[3]);
     console.log(costumer[4]); */
     
-    //display information
-    var myOrder = document.getElementById('confirmation');
+    return(costumer);
+};
+
+let displayCostumer = function() {
+   // console.log("Button clicked!");
+    let costumer = createCostumer();
+    
+    var myCostumer = document.getElementById('costumerInfo');
     
     var dl = document.createElement("dl");
     
     var nameDt = document.createElement("dt");
-    var nameText = document.createTextNode("Name: " + fullname);
+    var nameText = document.createTextNode("Name: " + costumer[0]);
     nameDt.appendChild(nameText);
     dl.appendChild(nameDt);
     
     var genderDt = document.createElement("dt");
-    var genderText = document.createTextNode("Gender: " + gender);
+    var genderText = document.createTextNode("Gender: " + costumer[1]);
     genderDt.appendChild(genderText);
     dl.appendChild(genderDt);
     
     var mailDt = document.createElement("dt");
-    var mailText = document.createTextNode("E-mail: " + email);
+    var mailText = document.createTextNode("E-mail: " + costumer[2]);
     mailDt.appendChild(mailText);
     dl.appendChild(mailDt);
     
+    var payDt = document.createElement("dt");
+    var payText = document.createTextNode("Payment method: " + costumer[3]);
+    payDt.appendChild(payText);
+    dl.appendChild(payDt);
+    
     /*var addressDt = document.createElement("dt");
-    var addressText = document.createTextNode("Address: " + street + " " + house);
+    var addressText = document.createTextNode("Address: " + costumer[4] + " " + costumer[5]);
     addressDt.appendChild(addressText);
     dl.appendChild(addressDt);*/
     
-    var dlBurger = document.createElement("dl");
-    var dt = document.createElement("dt");
-    var dtText = document.createTextNode("Your order:");
-    dt.appendChild(dtText);
-    dlBurger.appendChild(dt);
-    for(let burger of food){
-        if(document.getElementById(burger.id).checked) {
-            var dd = document.createElement("dd");
-            var ddText = document.createTextNode(burger.name);
-            dd.appendChild(ddText);
-            dlBurger.appendChild(dd);
-        }
-    }
-    
-     myOrder.appendChild(dl);
-     myOrder.appendChild(dlBurger);
+     myCostumer.appendChild(dl);
 }; 
 //var orderButton = document.getElementById('orderButton');
 //orderButton.addEventListener("click", saveAndDisplay);
+
+let displayOrder = function() {
+    var orderItems = document.getElementById("orderItems")
+    var ulBurger = document.createElement("ul");
+    for(let burger of food){
+        if(document.getElementById(burger.id).checked) {
+            var li = document.createElement("li");
+            var liText = document.createTextNode(burger.name);
+            li.appendChild(liText);
+            ulBurger.appendChild(li);
+        }
+    orderItems.appendChild(ulBurger);
+    }
+    
+};
+
+let orderItems = function() {
+    let orderItems = [];
+    for(let burger of food){
+        if(document.getElementById(burger.id).checked) {
+            orderItems.push(burger.name);
+        }
+    }
+    return(orderItems);
+};
+
