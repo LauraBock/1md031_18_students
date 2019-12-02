@@ -99,7 +99,7 @@ let createCostumer = function() {
     //var street = document.getElementById("street").value;
     //var house = document.getElementById("house").value;
 
-    let costumer = [gender.toString(), fullname.toString(), email.toString(), payment.toString()/*, street, house*/];
+    let costumer = [fullname.toString(), gender.toString(), email.toString(), payment.toString()/*, street, house*/];
    /* console.log(costumer[0]);
     console.log(costumer[1]);
     console.log(costumer[2]);
@@ -111,9 +111,13 @@ let createCostumer = function() {
 
 let displayCostumer = function() {
    // console.log("Button clicked!");
+    var myCostumer = document.getElementById('costumerInfo');
     let costumer = createCostumer();
     
-    var myCostumer = document.getElementById('costumerInfo');
+    /*var header = document.createElement("h2");
+    var headerText = document.createTextNode("Costumer details");
+    header.appendChild(headerText);
+    myCostumer.appendChild(header);*/
     
     var dl = document.createElement("dl");
     
@@ -145,10 +149,10 @@ let displayCostumer = function() {
      myCostumer.appendChild(dl);
 }; 
 //var orderButton = document.getElementById('orderButton');
-//orderButton.addEventListener("click", saveAndDisplay);
+//orderButton.addEventListener("click", displayCostumer);
 
 let displayOrder = function() {
-    var orderItems = document.getElementById("orderItems")
+    var orderItems = document.getElementById("orderItems");
     var ulBurger = document.createElement("ul");
     for(let burger of food){
         if(document.getElementById(burger.id).checked) {
@@ -161,6 +165,7 @@ let displayOrder = function() {
     }
     
 };
+//orderButton.addEventListener("click", displayOrder);
 
 let orderItems = function() {
     let orderItems = [];

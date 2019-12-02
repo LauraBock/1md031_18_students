@@ -31,7 +31,9 @@
                         <li v-if="burger.gluten">Contains <span class="allergies">gluten</span></li>
                         <li v-if="burger.lactose">Contains <span class="allergies">lactose</span></li>
                     </ul>
-                    <input v-bind:id=burger.id type="checkbox">
+                    <div>
+                        <input v-bind:id=burger.id type="checkbox">
+                    </div>
                 </div>
                 </div>
             </section>
@@ -83,7 +85,6 @@
                         <option value="Swish">Swish</option>
                     </select>
                 </p>
-            </section>
             <!DOCTYPE html>
                 <html>
                 <head>
@@ -105,16 +106,28 @@
                   </div>
                 </body>
                 </html>
+            </section>
                 <div id="orderButton">
                     <button type="submit" v-on:click="addOrder"><img width = 40  src="https://cdn.dribbble.com/users/713358/screenshots/2575203/untitled-5.png">Place my order!</button>
                 </div>
-            <h2> Order confirmation</h2>
-            <h3> Costumer details</h3>
-            <div id="costumerInfo">
-            </div>
-            <h3> Order summary</h3>
-            <div id="orderItems">
-            </div>
+            <section id="confirmation">
+                <h2> Order confirmation</h2>
+                <h3> Costumer details </h3>
+                <div id="costumerInfo">
+                    <dl>
+                        <dt>Name: {{costumer.name}}</dt>
+                        <dt>Gender: {{costumer.gender}}</dt>
+                        <dt>E-mail: {{costumer.mail}}</dt>
+                        <dt>Payment method: {{costumer.pay}}</dt>
+                    </dl>
+                </div>
+                <h3> Order summary </h3>
+                <div id="orderItems">
+                    <ul>
+                        <li v-for="item in orderItems">{{item}}</li>
+                    </ul>
+                </div>
+            </section>
         </main>
         <hr>
         <footer> &copy; 2019 Burgerama AB</footer>
